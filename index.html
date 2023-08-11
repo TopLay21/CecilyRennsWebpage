@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body{
+			background-color: #F285CC; 
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		.h1 {
+            font-family: arial;
+            font-size: 30px; 
+            font-weight: bold;
+            text-align: center;
+            margin-top: 80px; /* 추가 */
+        }
+
+        @media (max-width: 768px) {
+            /* 모바일 환경에서만 적용될 스타일 */
+            .h1 {
+                font-size: 18px; /* 모바일 환경에서 텍스트 크기를 줄임 */
+            }
+            /* 이전에 작성한 모바일 환경 슬라이더 스타일도 여기에 포함 */
+        }
+
+		#slideshow {
+  			margin: 80px auto;
+  			position: relative;
+  			width: 240px;
+  			height: 240px;
+  			padding: 10px;
+  			box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+		}
+
+		#slideshow > div {
+  			position: absolute;
+  			top: 10px;
+  			left: 10px;
+  			right: 10px;
+  			bottom: 10px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script>
+		var slideIndex = 0;
+
+		function showNextSlide() {
+			var slides = $("#slideshow > div");
+			slides.eq(slideIndex).fadeOut(1000);
+			slideIndex = (slideIndex + 1) % slides.length;
+			slides.eq(slideIndex).fadeIn(1000);
+		}
+
+		$(document).ready(function() {
+			showNextSlide();
+			setInterval(showNextSlide, 3000);
+		});
+	</script>
+	<title>CecilyRenns</title>
+</head>
+<body>
+	<div class="h1">Welcome to CecilyRenns Homepage!!!</div>
+	<div id="slideshow">
+   		<div>
+     		<a href="https://cecilyrenns.bandcamp.com/album/dysfunctional-bunnygirl"><img src="cr1.jpg"></a>
+   		</div>
+   		<div>
+     		<a href="https://cecilyrenns.bandcamp.com/album/attitude-made-of-influence-2"><img src="cr2.jpg"></a>
+   		</div>
+   		<div>
+     		<a href="https://cecilyrenns.bandcamp.com/album/pop"><img src="cr3.jpg"></a>
+   		</div>
+	</div>
+</body>
+</html>
